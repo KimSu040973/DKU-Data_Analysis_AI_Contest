@@ -27,7 +27,7 @@
 - www.sdss.org 에서 domain 관련 변수 추가  
 - LightGBM 기반 Permutation Importance를 적용하여 365개 변수에서 240개 제거  
 
-
+```python
 #이상치 제거
 for i in range(len(fea)):
     trn=trn[trn[fea[i]]>np.min(tst[fea[i]], axis=0)]
@@ -105,12 +105,16 @@ for df in [trn,tst]:
     df['asinh_mz'] = -2.5/np.log(10)*(np.arcsinh(df.z/22.83/(1.48e-09))-21.024370929730330)
 
 trn['class'] = trn_target
+```
+
 
 
 ### feature ver.2 :
 - 연산피쳐 줄이고 도메인 관련 변수를 추가적으로 생성
 - redshift가 Random Forest 분류기로 Feature Importance에서 중요하다고 나와 redshift 관련 연산변수 추가
 
+
+```python
 ftr=trn.drop("class",axis=1)
 target=trn['class']
 
@@ -133,8 +137,10 @@ imp = imp.sort_values('importance').set_index('feature')
 imp.plot(kind='barh')
 <matplotlib.axes._subplots.AxesSubplot at 0x1a4952bcd08>
 
+```   
 
 
+```python
 #이상치 제거
 for i in range(len(fea)):
     trn=trn[trn[fea[i]]>np.min(tst[fea[i]], axis=0)]
@@ -209,6 +215,10 @@ for df in [trn,tst]:
     df['domain2'] = (df.r-df.i) - (df.g-df.r)/4 - 0.177 
     df['domain3'] = 0.449 - (df.g-df.r)/6  
     df['domain4'] = 1.296 + 0.25*(df.r-df.i)  
-    df['domain5'] =  (df.r-df.i) - (df.g-df.r)/4 - 0.18  
+    df['domain5'] =  (df.r-df.i) - (df.g-df.r)/4 - 0.18
+```
 
+```python
     del df['u']
+```
+
