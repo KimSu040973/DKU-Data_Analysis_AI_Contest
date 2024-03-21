@@ -1,5 +1,8 @@
 # DKU-(SDSS_천체)Data_Analysis_AI_Contest
-2020-2학기 천체 데이터 분석 AI 경진대회
+2020-2학기 천체 데이터 분석 AI 경진대회  
+[단국대 소·중 데이터 분석 AI 경진대회]([link](https://dacon.io/competitions/official/235638/overview/description)) 
+
+
 
 ## 1. EDA & Feature engineering
 -   사칙연산과 도메인 지식을 통한 다양한 변수 생성으로 초기 Feature_ver.1 생성  
