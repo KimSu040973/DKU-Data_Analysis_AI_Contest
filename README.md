@@ -2,11 +2,11 @@
 2020-2학기 천체 데이터 분석 AI 경진대회
 
 ### 1. EDA & Feature engineering
-사칙연산과 도메인 지식을 통한 다양한 변수 생성으로 초기 Feature_ver.1 생성
-생성한 모든 변수를 사용하여 lightgbm 기반 Permutation Importance 진행
-Permutation Importance를 기준으로 365개 변수에서 125개 변수로 축소 ()
-아래와 같은 다양한 모델을 사용하여 스태킹을 했으나 성능의 한계를 느낌
-성능 향상을 위해 더 넓은 도메인 지식을 사용하여 Feature_ver.2 생성
+사칙연산과 도메인 지식을 통한 다양한 변수 생성으로 초기 Feature_ver.1 생성  
+생성한 모든 변수를 사용하여 lightgbm 기반 Permutation Importance 진행  
+Permutation Importance를 기준으로 365개 변수에서 125개 변수로 축소 ()  
+아래와 같은 다양한 모델을 사용하여 스태킹을 했으나 성능의 한계를 느낌  
+성능 향상을 위해 더 넓은 도메인 지식을 사용하여 Feature_ver.2 생성  
 ### 2. Modeling
 모든 모델은 StratifiedKfold를 사용하여 정확도 검증
 처음에는 LightGBM 단일 모델만을 사용하였으나 test accuracy가 0.9366에서 멈춤
