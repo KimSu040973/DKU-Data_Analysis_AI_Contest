@@ -2,22 +2,22 @@
 2020-2학기 천체 데이터 분석 AI 경진대회
 
 ## 1. EDA & Feature engineering
-1. 사칙연산과 도메인 지식을 통한 다양한 변수 생성으로 초기 Feature_ver.1 생성  
-2. 생성한 모든 변수를 사용하여 lightgbm 기반 Permutation Importance 진행  
-3. Permutation Importance를 기준으로 365개 변수에서 125개 변수로 축소   
-4. 아래와 같은 다양한 모델을 사용하여 스태킹을 했으나 성능의 한계를 느낌  
-5. 성능 향상을 위해 더 넓은 도메인 지식을 사용하여 Feature_ver.2 생성  
+-   사칙연산과 도메인 지식을 통한 다양한 변수 생성으로 초기 Feature_ver.1 생성  
+-   생성한 모든 변수를 사용하여 lightgbm 기반 Permutation Importance 진행  
+-   Permutation Importance를 기준으로 365개 변수에서 125개 변수로 축소 
+-   아래와 같은 다양한 모델을 사용하여 스태킹을 했으나 성능의 한계를 느낌 
+-   성능 향상을 위해 더 넓은 도메인 지식을 사용하여 Feature_ver.2 생성  
 ## 2. Modeling
-1. 모든 모델은 StratifiedKfold를 사용하여 정확도 검증  
-2. 처음에는 LightGBM 단일 모델만을 사용하였으나 test accuracy가 0.9366에서 멈춤  
-3. 이후 스태킹을 위해 XGBoost, RandomForest, SVM, LogisticRegression, AdaBoost의 모델들을 시도  
-4. GridSearchCV와 RandomizedSearch, HyperOpt 등의 Parameter 튜닝 모델들을 사용하여 개별 모델들의 성능을 올리고 스태킹을 시도하였으나 train 데이터에 대해 과적합이 확인되며 오히려 성능이 떨어짐  
-5. Feature_ver.1과 Feature_ver.2 이외에도 ver.3, ver.4를 만들어 Feature별 스태킹 및 Model별 스태킹 또한 진행하였으나 심한 과적합을 보임  
-6. 이후 Feature_ver.1과 Feature_ver.2에만 모델을 사용하여 여러 조합을 통해 가장 높은 CV값을 보이는 모델 제출  
+-   모든 모델은 StratifiedKfold를 사용하여 정확도 검증
+-   처음에는 LightGBM 단일 모델만을 사용하였으나 test accuracy가 0.9366에서 멈춤  
+-   이후 스태킹을 위해 XGBoost, RandomForest, SVM, LogisticRegression, AdaBoost의 모델들을 시도  
+-   GridSearchCV와 RandomizedSearch, HyperOpt 등의 Parameter 튜닝 모델들을 사용하여 개별 모델들의 성능을 올리고 스태킹을 시도하였으나 train 데이터에 대해 과적합이 확인되며 오히려 성능이 떨어짐  
+-   Feature_ver.1과 Feature_ver.2 이외에도 ver.3, ver.4를 만들어 Feature별 스태킹 및 Model별 스태킹 또한 진행하였으나 심한 과적합을 보임   
+-   이후 Feature_ver.1과 Feature_ver.2에만 모델을 사용하여 여러 조합을 통해 가장 높은 CV값을 보이는 모델 제출  
 ## 3. 한계점
-1. EDA를 사용하여 보다 잘 구분되는 파생변수를 생성하였으나 효과가 없는 변수가 더 많았음  
-2. 전체 데이터(320000)에서 LightGBM과 같은 좋은 모델들이 구분하지 못하는 약 6.1%의 데이터를 LogisticRegression이 약 13.5% 구분한다는 것을 확인하였으나 제대로 접목시키지 못함  
-3. 산점도 내에서 변수간의 관계 파악을 통해 변수 생성을 할 수 있었으나 시간상 초기 생성한 360개 변수에 대해서 모두 산점도를 그려보지 못함  
+- EDA를 사용하여 보다 잘 구분되는 파생변수를 생성하였으나 효과가 없는 변수가 더 많았음  
+- 전체 데이터(320000)에서 LightGBM과 같은 좋은 모델들이 구분하지 못하는 약 6.1%의 데이터를 LogisticRegression이 약 13.5% 구분한다는 것을 확인하였으나 제대로 접목시키지 못함  
+- 산점도 내에서 변수간의 관계 파악을 통해 변수 생성을 할 수 있었으나 시간상 초기 생성한 360개 변수에 대해서 모두 산점도를 그려보지 못함  
 
 ### feature ver.1
 - raw data의 변수들의 조합을 이용하여 사칙연산 피쳐 생성  
