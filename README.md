@@ -19,7 +19,7 @@ EDA를 사용하여 보다 잘 구분되는 파생변수를 생성하였으나 �
 전체 데이터(320000)에서 LightGBM과 같은 좋은 모델들이 구분하지 못하는 약 6.1%의 데이터를 LogisticRegression이 약 13.5% 구분한다는 것을 확인하였으나 제대로 접목시키지 못함
 산점도 내에서 변수간의 관계 파악을 통해 변수 생성을 할 수 있었으나 시간상 초기 생성한 360개 변수에 대해서 모두 산점도를 그려보지 못함
 
-#### feature ver.1
+### feature ver.1
 raw data의 변수들의 조합을 이용하여 사칙연산 피쳐 생성
 www.sdss.org 에서 domain 관련 변수 추가
 LightGBM 기반 Permutation Importance를 적용하여 365개 변수에서 240개 제거
@@ -104,7 +104,7 @@ for df in [trn,tst]:
 trn['class'] = trn_target
 
 
-#### feature ver.2 :
+### feature ver.2 :
 연산피쳐 줄이고 도메인 관련 변수를 추가적으로 생성
 redshift가 Random Forest 분류기로 Feature Importance에서 중요하다고 나와 redshift 관련 연산변수 추가
 
